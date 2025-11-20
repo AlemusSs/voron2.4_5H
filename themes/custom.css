@@ -1,0 +1,23 @@
+/* Иконка для кнопки FILAMENT_STATUS_T0 (филамент) */
+.macro-button[data-macro="FILAMENT_STATUS_T0"]::before {
+    content: '\f1c9';  /* Код символа mdi-fiber-smart-record (филамент/датчик) из Material Design Icons */
+    font-family: "Material Design Icons";
+    color: #4caf50;  /* Зелёный цвет для "есть", или #f44336 для "нет" */
+    margin-right: 5px;  /* Отступ от текста */
+}
+
+/* Общий стиль для кнопок макросов (опционально) */
+.macro-button {
+    background: #2c2c2c;
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+/* Динамический цвет в зависимости от статуса (зелёный для "есть", красный для "нет") */
+.macro-button[data-macro="FILAMENT_STATUS_T0"].status-has::before {
+    color: #4caf50;  /* Зелёный */
+}
+.macro-button[data-macro="FILAMENT_STATUS_T0"].status-no::before {
+    color: #f44336;  /* Красный */
+}

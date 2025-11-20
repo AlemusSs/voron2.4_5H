@@ -1,0 +1,247 @@
+-------------------- Log Start | Thu Nov 20 04:52:25 2025 --------------------
+platform: Linux-6.6.66-vendor-sunxi64-aarch64-with-glibc2.36
+data_path: /home/biqu/printer_data
+is_default_data_path: False
+config_file: /home/biqu/printer_data/config/moonraker.conf
+backup_config: /home/biqu/printer_data/config/.moonraker.conf.bkp
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: f886b44bce874fd49b4312b7ab67e79b
+unix_socket_path: /home/biqu/printer_data/comms/moonraker.sock
+structured_logging: False
+software_version: v0.9.3-123-g8426f41
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker
+modified_files: []
+unofficial_components: []
+log_file: /home/biqu/printer_data/logs/moonraker.log
+python_version: 3.11.2 (main, Apr 28 2025, 14:11:48) [GCC 12.2.0]
+launch_args: /home/biqu/moonraker-env/bin/python /home/biqu/moonraker/moonraker/moonraker.py -d /home/biqu/printer_data
+msgspec_enabled: True
+uvloop_enabled: True
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7125
+klippy_uds_address = /home/biqu/printer_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	192.168.0.0/16
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+
+[update_manager mainsail]
+path = /home/biqu/mainsail
+repo = mainsail-crew/mainsail
+channel = stable
+type = web
+
+[update_manager mainsail-config]
+managed_services = klipper
+origin = https://github.com/mainsail-crew/mainsail-config.git
+path = /home/biqu/mainsail-config
+primary_branch = master
+type = git_repo
+
+[update_manager KlipperScreen]
+install_script = /home/biqu/KlipperScreen/scripts/KlipperScreen-install.sh
+requirements = /home/biqu/KlipperScreen/scripts/KlipperScreen-requirements.txt
+env = /home/biqu/.KlipperScreen-env/bin/python
+managed_services = KlipperScreen
+origin = https://github.com/KlipperScreen/KlipperScreen.git
+path = /home/biqu/KlipperScreen
+type = git_repo
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+managed_services = crowsnest
+install_script = tools/pkglist.sh
+
+[update_manager sonar]
+type = git_repo
+path = ~/sonar
+origin = https://github.com/mainsail-crew/sonar.git
+primary_branch = main
+managed_services = sonar
+install_script = tools/install.sh
+
+[update_manager timelapse]
+type = git_repo
+primary_branch = main
+path = ~/moonraker-timelapse
+origin = https://github.com/mainsail-crew/moonraker-timelapse.git
+managed_services = klipper moonraker
+
+[update_manager print_area_bed_mesh]
+type = git_repo
+path = ~/print_area_bed_mesh
+origin = https://github.com/Turge08/print_area_bed_mesh.git
+is_system_service = False
+
+[update_manager klipper-toolchanger]
+type = git_repo
+channel = dev
+path = ~/klipper-toolchanger
+origin = https://github.com/viesturz/klipper-toolchanger.git
+managed_services = klipper
+primary_branch = main
+
+[update_manager tapchanger]
+type = git_repo
+path = ~/tapchanger
+origin = https://github.com/viesturz/tapchanger.git
+primary_branch = main
+managed_services = klipper
+
+[update_manager led_effect]
+type = git_repo
+path = ~/klipper-led_effect
+origin = https://github.com/julianschill/klipper-led_effect.git
+is_system_service = False
+
+#################################################################
+All Configuration Files:
+/home/biqu/printer_data/config/moonraker.conf
+#################################################################
+Loading Sqlite database provider. Sqlite Version: 3.40.1
+Unsafe Shutdown Count: 39
+
+System Info:
+
+***python***
+  version: (3, 11, 2, 'final', 0)
+  version_string: 3.11.2 (main, Apr 28 2025, 14:11:48) [GCC 12.2.0]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 64bit
+  processor: aarch64
+  cpu_desc: 
+  serial_number: 
+  hardware_desc: 
+  model: 
+  total_memory: 940764
+  memory_units: kB
+
+***sd_info***
+  manufacturer_id: 74
+  manufacturer: PNY
+  oem_id: 4a60
+  product_name: USDU1
+  product_revision: 2.0
+  serial_number: 443818ec
+  manufacturer_date: 5/2021
+  capacity: 14.7 GiB
+  total_bytes: 15836643328
+
+***distribution***
+  name: Armbian 25.8.1 bookworm
+  id: debian
+  version: 12
+  version_parts: {'major': '12', 'minor': '', 'build_number': ''}
+  like: 
+  codename: bookworm
+  release_info: {'name': '# BIGTREETECH-CB1', 'version_id': '3.0.0', 'id': 'armbian'}
+  kernel_version: 6.6.66-vendor-sunxi64
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  ratos-configurator
+Module libcamera unavailable, import failed
+
+Systemd unit moonraker.service:
+unit_name: moonraker.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['network-online.target', 'sysinit.target', '-.mount', 'system.slice']
+**After=['basic.target', 'system.slice', 'systemd-journald.socket', 'network-online.target', '-.mount', 'sysinit.target']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/biqu/printer_data/systemd/moonraker.env
+**ExecStart=/home/biqu/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/biqu/moonraker
+**FragmentPath=/etc/systemd/system/moonraker.service
+**Description=API Server for Klipper SV1
+**User=biqu
+
+Systemd unit klipper.service:
+unit_name: klipper.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['-.mount', 'system.slice', 'sysinit.target']
+**After=['system.slice', 'systemd-journald.socket', 'network-online.target', 'klipper-mcu.service', 'basic.target', '-.mount', 'sysinit.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/biqu/printer_data/systemd/klipper.env
+**ExecStart=/home/biqu/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/biqu/klipper
+**FragmentPath=/etc/systemd/system/klipper.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=biqu
+Git Repo moonraker: Warnings detected:
+  Repo has untracked source files: ['moonraker/components/timelapse.py']
+Git Repo klipper: Warnings detected:
+  Repo has untracked source files: ['klippy/extras/bed_thermal_adjust.py', 'klippy/extras/led_effect.py', 'klippy/extras/manual_rail.py', 'klippy/extras/multi_fan.py', 'klippy/extras/rounded_path.py', 'klippy/extras/tool.py', 'klippy/extras/tool_probe.py', 'klippy/extras/tool_probe_endstop.py', 'klippy/extras/toolchanger.py', 'klippy/extras/tools_calibrate.py']
+Git Repo mainsail-config: No warnings detected
+Git Repo KlipperScreen: No warnings detected
+Git Repo crowsnest: No warnings detected
+Git Repo sonar: No warnings detected
+Git Repo timelapse: No warnings detected
+Git Repo print_area_bed_mesh: No warnings detected
+Git Repo klipper-toolchanger: No warnings detected
+Git Repo tapchanger: No warnings detected
+Git Repo led_effect: No warnings detected
+Klipper Version: v0.13.0-290-g8c7693c04-dirty
+2025-11-20 04:52:25,258 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.14.201
+2025-11-20 04:52:25,267 [application.py:log_request()] - 101 GET /websocket (192.168.14.201) [_TRUSTED_USER_] 12.50ms
+2025-11-20 04:52:25,268 [websockets.py:open()] - Websocket Opened: ID: 281473612409680, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 YaBrowser/25.8.0.0 Safari/537.36, Host Name: 192.168.14.126
+2025-11-20 04:52:25,350 [common.py:build_error()] - JSON-RPC Request Error - Code: -32600, Message: Invalid Request
+2025-11-20 04:52:25,367 [application.py:log_request()] - 101 GET /websocket (192.168.14.201) [_TRUSTED_USER_] 4.42ms
+2025-11-20 04:52:25,368 [websockets.py:open()] - Websocket Opened: ID: 281473612702544, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 YaBrowser/25.8.0.0 Safari/537.36, Host Name: 192.168.14.126
+2025-11-20 04:52:25,402 [websockets.py:_handle_identify()] - Websocket 281473612702544 Client Identified - Name: mainsail, Version: 2.14.0, Type: web
